@@ -24,7 +24,7 @@ echo "- Output directory: $out"
 mkdir -p "$out"
 
 user=$(am get-current-user)
-pid=$(ps -ef | grep $package | grep u$user | awk '{print $2}')
+pid=$(ps -ef | grep -w $package | grep u$user | awk '{print $2}')
 
 if [[ $pid == "" ]]; then
 	echo "! Target package of current user ($user) not found, is process running?"
